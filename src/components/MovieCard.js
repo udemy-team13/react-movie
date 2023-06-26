@@ -5,10 +5,8 @@ const MovieCard = (props) => {
         <img src={props.item.large_cover_image} alt={`moviePosterImage${props.item.id}`} className="movie-img" />
       </div>
       <div className="movie-txt-grp">
-        <p className="one-line">{props.item.title_long}</p>
-        <p className="one-line">{props.item.genres}</p>
-        <p className="one-line">{props.item.rating}</p>
-        <p className="one-line">{props.item.summary}</p>
+        <p>{props.item.title_long}</p>
+        <p>{props.item.rating}</p>
       </div>
     </div>
   )

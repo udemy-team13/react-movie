@@ -1,20 +1,20 @@
-import 'styles/Base.scss';
-import 'styles/App.scss';
+import 'styles/Base.scss'; // reset css
+import 'styles/App.scss'; // main css
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // pages
-import MovieList from 'pages/MovieList';
+import Home from 'pages/Home';
 import MovieDetail from 'pages/MovieDetail';
 
 // components
-import Navigation from 'components/Navigation';
+import Header from 'components/Header';
 import Footer from 'components/Footer';
 
 function App() {
   return (
     <Router>
-      <Navigation />
+      <Header />
       <Routes>
-        <Route path="/" element={<MovieList />} />
+        <Route path="/" element={<Home />} />
         <Route path="/movie-detail/:id" element={<MovieDetail />} />
       </Routes>
       <Footer />
