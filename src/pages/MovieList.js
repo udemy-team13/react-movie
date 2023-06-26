@@ -33,31 +33,33 @@ const MovieList = (props) => {
 
   return (
     <div className="page-container">
-      <div className="select-wrap">
-        <select
-          className="select"
-          value={selected}
-          onChange={handleSelect}
-        >
-          <option key="sort" value="sort">
-            -- 분류 --
-          </option>
-          <option key="year" value="year">
-            년도 &darr;
-          </option>
-          <option key="rating" value="rating">
-            평점 &uarr;
-          </option>
-        </select>
-      </div>
-      <div className="movie-list-wrap">
-        {
-          movieList.map(function(item) {
-            return (
-              <MovieCard onClick={goDetail} item={item} key={item.id} />
-            )
-          })
-        }
+      <div className="layout-center">
+        <div className="select-wrap">
+          <select
+            className="select"
+            value={selected}
+            onChange={handleSelect}
+          >
+            <option key="sort" value="sort">
+              -- 분류 --
+            </option>
+            <option key="year" value="year">
+              년도 &darr;
+            </option>
+            <option key="rating" value="rating">
+              평점 &uarr;
+            </option>
+          </select>
+        </div>
+        <div className="movie-list-wrap">
+          {
+            movieList.map(function(item) {
+              return (
+                <MovieCard onClick={goDetail} item={item} key={item.id} />
+              )
+            })
+          }
+        </div>
       </div>
     </div>
   )

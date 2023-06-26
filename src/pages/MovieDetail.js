@@ -47,23 +47,27 @@ const MovieDetail = () => {
           <div className="detail-bg-img-grp">
             <img src={detailInfo.background_image_original} alt="" className="detail-bg-img" />
           </div>
-          {/* 상단 영역 */}
-          <div className="top-area-wrap">
-            <div className="detail-img-grp">
-              <img src={detailInfo.large_cover_image} className="detail-img" alt="" />
+          <div className="layout-center">
+            <div className="detail-info-wrap">
+              {/* 상단 영역 */}
+              <div className="top-area-wrap">
+                <div className="detail-img-grp">
+                  <img src={detailInfo.large_cover_image} className="detail-img" alt="" />
+                </div>
+                <div className="detail-txt-grp">
+                  <p>{detailInfo.title_long}</p>
+                  <p>{detailInfo.genres}</p>
+                  <p>{detailInfo.rating}</p>
+                  <p>{detailInfo.imdb_code}</p>
+                </div>
+              </div>
+              {/* 하단 설명 영역 */}
+              <div className="bottom-area-wrap">
+                <p onClick={() => { handleText() }}>{detailInfo.description_full.length > 150
+                  ? `${detailInfo.description_full.slice(0, text)} ${toggle ? "" : "...펼치기"}`
+                  : detailInfo.description_full}</p>
+              </div>
             </div>
-            <div className="detail-txt-grp">
-              <p>{detailInfo.title_long}</p>
-              <p>{detailInfo.genres}</p>
-              <p>{detailInfo.rating}</p>
-              <p>{detailInfo.imdb_code}</p>
-            </div>
-          </div>
-          {/* 하단 설명 영역 */}
-          <div className="bottom-area-wrap">
-            <p onClick={() => { handleText() }}>{detailInfo.description_full.length > 150
-              ? `${detailInfo.description_full.slice(0, text)} ${toggle ? "" : "...펼치기"}`
-              : detailInfo.description_full}</p>
           </div>
         </div>
       }
