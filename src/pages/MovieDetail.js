@@ -39,7 +39,7 @@ const MovieDetail = () => {
   };
 
   return (
-    <>
+    <div className="page-container">
     {
       loading
       ? <Loader />
@@ -67,7 +67,7 @@ const MovieDetail = () => {
           </div>
         </div>
       }
-    </>
+    </div>
   )
 }
 

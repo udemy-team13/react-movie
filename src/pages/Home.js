@@ -4,20 +4,20 @@ import MovieList from "pages/MovieList";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
-  const [movie, setMovie] = useState([]);
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     (async () => {
       const { data } = await (
         await fetch(
-          "https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year"
+          "https://yts.mx/api/v2/list_movies.json"
         )
       ).json();
       // setLoading((prev) => !prev); // 이거 왜 !prev인지 이해를 못해서 일단 잠시 홀딩..
       setLoading(() => false);
-      setMovie(data);
+      setMovies(data.movies);
     })();
   }, []);
 
-  return <>{loading ? <Loader /> : <MovieList rawData={movie} />}</>;
+  return <>{loading ? <Loader /> : <MovieList movies={movies} />}</>;
 }

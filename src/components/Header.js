@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">MovieList</Link>
-          </li>
-        </ul>
-      </nav>
+    <header className='header'>
+      <div className="header-inner">
+        <nav className="header-nav">
+          <ul className='header-nav-grp'>
+            <li className='header-nav-list'>
+              <Link to="/">MovieList</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
   )
 }
