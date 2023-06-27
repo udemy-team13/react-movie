@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import MovieCard from "components/MovieCard";
 import { useNavigate } from "react-router-dom";
+import MovieCard from "components/MovieCard";
 import SortMovie from "components/SortMovie";
+import SearchBar from "components/SearchBar";
 
 const MovieList = (props) => {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ const MovieList = (props) => {
     <div className="page-container">
       <div className="layout-center">
         <div className="select-wrap">
+          <SearchBar setMovieList={setMovieList} movies={props.movies} />
           <SortMovie
             movieList={movieList}
             setMovieList={setMovieList}
@@ -28,17 +30,21 @@ const MovieList = (props) => {
           />
         </div>
         <div className="movie-list-wrap">
-          {movieList.map(function (item) {
-            return (
-              <MovieCard
-                onClick={goDetail}
-                item={item}
-                key={item.id}
-                movieList={movieList}
-                setMovieList={setMovieList}
-              />
-            );
-          })}
+          {movieList ? (
+            movieList?.map(function (item) {
+              return (
+                <MovieCard
+                  onClick={goDetail}
+                  item={item}
+                  key={item.id}
+                  movieList={movieList}
+                  setMovieList={setMovieList}
+                />
+              );
+            })
+          ) : (
+            <h1>영화를 찾지 못했습니다.</h1>
+          )}
         </div>
       </div>
     </div>
