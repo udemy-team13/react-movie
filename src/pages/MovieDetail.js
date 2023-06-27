@@ -71,8 +71,8 @@ const MovieDetail = () => {
                   />
                 </div>
                 <div className="detail-txt-grp">
-                  <p>{detailInfo.title_long}</p>
-                  <Stack direction="row" spacing={1}>
+                  <p className="detail-title-txt">{detailInfo.title_long}</p>
+                  <Stack className="stack-genre-grp" direction="row" spacing={1}>
                     {detailInfo.genres.map((item) => {
                       return (
                         <Chip
@@ -111,6 +111,7 @@ const MovieDetail = () => {
               {/* 하단 설명 영역 */}
               <div className="bottom-area-wrap">
                 <p
+                  className="description-txt"
                   onClick={() => {
                     handleText();
                   }}

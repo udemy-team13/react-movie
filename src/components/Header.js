@@ -12,13 +12,13 @@ const Header = () => {
                 <img src={Logo} alt="logo-img" className='img' />
               </div>
             </Link>
-            <nav className="header-nav">
+            {/* <nav className="header-nav">
               <ul className='header-nav-grp'>
                 <li className='header-nav-list'>
                   <Link to="/">reactMovie()</Link>
                 </li>
               </ul>
-            </nav>
+            </nav> */}
           </div>
           <div className="right-wrap">
             {/* 고도화 시 작업해 볼 예정..? */}

@@ -1,3 +1,11 @@
+// mixin
+// responsive custom
+@mixin media($px, $range: max) {
+  @media all and (#{$range}-width: $px) {
+    @content;
+  }
+}
+
 // loading-spinner
 .loading-spinner-wrap {
   position: fixed;
@@ -8,7 +16,7 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .lds-ring {
@@ -51,6 +59,7 @@
 .layout-center {
   max-width: 1080px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .one-line {
@@ -61,11 +70,12 @@
 
 // header
 .header {
-  padding: 25px 0;
+  padding: 20px 0;
 
   .header-inner {
     max-width: 1080px;
     margin: 0 auto;
+    padding: 0 20px;
 
     .flex-wrap {
       display: flex;
@@ -100,11 +110,12 @@
 }
 
 .footer {
-  padding: 25px 0;
+  padding: 20px 0;
 
   .footer-inner {
     max-width: 1080px;
     margin: 0 auto;
+    padding: 0 20px;
   }
 
   .copyright {
@@ -134,10 +145,27 @@
   align-items: stretch;
   flex-wrap: wrap;
   gap: 20px;
+
+  @include media(900px) {
+    gap: 10px;
+  }
+
+  @include media(600px) {
+    display: block;
+  }
 }
 
 .movie-card {
   width: calc((100% - 60px) / 4);
+
+  @include media(900px) {
+    width: calc((100% - 20px) / 3);
+  }
+
+  @include media(600px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 
   &:hover {
     .movie-img {
@@ -150,6 +178,7 @@
     overflow: hidden;
     width: 100%;
     border-radius: 10px;
+    border: 1px solid #eae9e8;
 
     .movie-img {
       display: block;
@@ -161,7 +190,7 @@
   }
 
   .movie-txt-grp {
-    padding: 5px 3px;
+    padding: 7px 3px;
 
     .movie-title {
       font-size: 14px;
@@ -182,7 +211,7 @@
   }
 
   .gerne-chip {
-    font-size: 10px;
+    font-size: 12px;
     height: 20px; // MUI css custom
   }
 }
@@ -211,14 +240,40 @@
 
 .detail-info-wrap {
   position: relative;
-  padding: 50px 20px; // temp
+  padding: 50px 0;
 
   .top-area-wrap {
-    color: #fff; // temp
+
+    .detail-img-grp {
+
+      .detail-img {
+        display: block;
+        border-radius: 10px;
+      }
+    }
+
+    .detail-title-txt {
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+      padding-top: 10px;
+      padding-bottom: 20px;
+    }
+
+    .stack-genre-grp {
+      margin-bottom: 10px;
+    }
   }
 
   .bottom-area-wrap {
-    color: #fff; // temp
+    padding-top: 20px;
+    
+    .description-txt {
+      font-size: 16px;
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.5;
+    }
   }
 
   .detail-genre-chip {

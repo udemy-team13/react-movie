@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Button, TextField } from '@mui/material';
+import Loader from "components/Loader";
 
 
 export default function SearchBar({ setMovieList, movies }) {
   const [text, setText] = useState("");
+  const [loading, setLoading] = useState(false);
 
   // input의 문자열 관리
   const handleText = (e) => {
@@ -16,6 +18,7 @@ export default function SearchBar({ setMovieList, movies }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true); // laoder 노출
     // input validate
     if (text.length === 0) return;
 
@@ -26,12 +29,14 @@ export default function SearchBar({ setMovieList, movies }) {
       } = await (
         await fetch(`https://yts.mx/api/v2/list_movies.json?query_term=${text}`)
       ).json();
+      setLoading(false); // laoder 숨김
       setMovieList(movies);
     })();
   };
 
   return (
     <div>
+      { loading ? <Loader /> : null }
       <form onSubmit={handleSubmit} style={{display: 'flex', justifyContent: 'center', alignItems: 'flex-end', gap: '5px'}}>
         <TextField id="standard-basic" label="영화를 검색해보세요" variant="standard"
         value={text}
