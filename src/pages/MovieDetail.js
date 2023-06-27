@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import Loader from "components/Loader";
-import { Chip, Stack } from '@mui/material';
+import { Chip, Stack, Rating } from '@mui/material';
 
 const MovieDetail = () => {
   const {id} = useParams();
@@ -23,7 +23,7 @@ const MovieDetail = () => {
         // setLoading((prev) => !prev);
         setLoading(() => false);
         setDetailInfo(json.data.movie);
-      })
+      })  
   }
 
   // 텍스트 길이 수정 코드
@@ -66,8 +66,9 @@ const MovieDetail = () => {
                     }
 
                   </Stack>
-                  <p>{detailInfo.rating}</p>
-                  <p>{detailInfo.imdb_code}</p>
+                  
+                  <Rating defaultValue={detailInfo.rating/2} readOnly></Rating>
+                  <a href={"https://www.imdb.com/title/"+detailInfo.imdb_code} target="_blank"><img style={{height:'16px'}} src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/863px-IMDB_Logo_2016.svg.png?20200406194337"/></a>
                 </div>
               </div>
               {/* 하단 설명 영역 */}
