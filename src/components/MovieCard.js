@@ -1,6 +1,11 @@
 import { Chip, Stack } from "@mui/material";
+import defaultImg from "assets/images/defaultImg.png";
 
 const MovieCard = (props) => {
+  const handleImgError = (e) => {
+    e.target.src = defaultImg;
+  };
+
   function clickTest() {
     // Chip에 onClick event가 붙어야 인터렉션이 생겨서 test로 작성
     console.log("test");
@@ -29,6 +34,7 @@ const MovieCard = (props) => {
           src={props.item.large_cover_image}
           alt={`moviePosterImage${props.item.id}`}
           className="movie-img"
+          onError={handleImgError}
         />
       </div>
       <div className="movie-txt-grp">
