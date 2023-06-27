@@ -18,6 +18,7 @@
     "sass": "^1.63.6",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "http://Hun5LEE.github.io/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
