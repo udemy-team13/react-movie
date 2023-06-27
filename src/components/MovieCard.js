@@ -1,5 +1,5 @@
 import { Chip, Stack } from "@mui/material";
-import defaultImg from "../assets/images/defaultImg.png";
+import defaultImg from "assets/images/defaultImg.png";
 
 const MovieCard = (props) => {
   const handleImgError = (e) => {
