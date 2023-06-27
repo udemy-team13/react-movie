@@ -14,7 +14,7 @@ const MovieDetail = () => {
 
   const handleImgError = (e) => {
     e.target.src = defaultImg;
-  };
+};
 
   useEffect(() => {
     getMovieDetailInfo();
