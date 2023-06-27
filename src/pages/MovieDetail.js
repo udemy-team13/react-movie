@@ -43,8 +43,6 @@ const MovieDetail = () => {
     }
   };
 
-  console.log("detailInfo", detailInfo);
-
   return (
     <div className="page-container">
       {loading ? (
@@ -73,9 +71,10 @@ const MovieDetail = () => {
                 <div className="detail-txt-grp">
                   <p className="detail-title-txt">{detailInfo.title_long}</p>
                   <Stack className="stack-genre-grp" direction="row" spacing={1}>
-                    {detailInfo.genres.map((item) => {
+                    {detailInfo.genres.map((item, index) => {
                       return (
                         <Chip
+                          key={index}
                           className="detail-genre-chip"
                           label={item}
                           color="default"
