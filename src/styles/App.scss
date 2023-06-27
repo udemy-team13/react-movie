@@ -11,7 +11,6 @@
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-
 .lds-ring {
   display: inline-block;
   position: relative;
@@ -80,7 +79,6 @@
         gap: 20px;
 
         .logo-img-grp {
-          
           .img {
             width: 40px;
             height: 40px;
@@ -103,7 +101,7 @@
 
 .footer {
   padding: 25px 0;
-  
+
   .footer-inner {
     max-width: 1080px;
     margin: 0 auto;
@@ -123,7 +121,7 @@
 
 .select-wrap {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
 }
@@ -140,7 +138,6 @@
   width: calc((100% - 60px) / 4);
 
   &:hover {
-    
     .movie-img {
       transform: scale(1.05);
       filter: brightness(80%);
@@ -157,7 +154,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: all .3s;
+      transition: all 0.3s;
     }
   }
 
@@ -225,4 +222,24 @@
   .detail-genre-chip {
     color: #fff; // temp
   }
+}
+
+// SearchBar.js
+
+.search-input {
+  text-align: center;
+  outline: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+  &:focus {
+    border-bottom: 2px solid rgb(66, 116, 224);
+  }
+}
+
+.search-btn {
+  width: 3rem;
+  height: 1.25rem;
+  border-radius: 5px;
+  color: white;
+  background-color: rgb(66, 116, 224);
+  cursor: pointer;
 }
