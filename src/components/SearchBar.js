@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Button, TextField } from '@mui/material';
+
 
 export default function SearchBar({ setMovieList, movies }) {
   const [text, setText] = useState("");
@@ -29,16 +31,25 @@ export default function SearchBar({ setMovieList, movies }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        className="search-input"
+    <div>
+      <form onSubmit={handleSubmit} style={{display: 'flex', justifyContent: 'center', alignItems: 'flex-end', gap: '5px'}}>
+        <TextField id="standard-basic" label="영화를 검색해보세요" variant="standard"
         value={text}
         onChange={handleText}
-        placeholder="영화검색"
-      />
-      <button className="search-btn" type="submit">
-        검색
-      </button>
-    </form>
+        />
+        <Button type="submit" size="small" variant="outlined" style={{'color': '#000', 'borderColor': '#000'}}>검색</Button>
+      
+
+        {/* <input
+          className="search-input"
+          value={text}
+          onChange={handleText}
+          placeholder="영화검색"
+        /> */}
+        {/* <button className="search-btn" type="submit">
+          검색
+        </button> */}
+      </form>
+    </div>
   );
 }

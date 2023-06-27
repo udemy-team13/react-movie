@@ -117,12 +117,14 @@
 .select {
   font-size: 12px;
   padding: 5px;
+  border: 1px solid #000;
+  border-radius: 5px;
 }
 
 .select-wrap {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   margin-bottom: 10px;
 }
 
