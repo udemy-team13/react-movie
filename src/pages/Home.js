@@ -17,8 +17,17 @@ export default function Home() {
     })();
   }, []);
 
-  function searchMovie() {
-    console.log('searchMovie');
+  // 영화 검색
+  function searchMovie(keyword) {
+    setLoading(true);
+    console.log(keyword);
+    (async () => {
+      const { data } = await (
+        await fetch(`https://yts.mx/api/v2/list_movies.json?query_term=${keyword}`)
+      ).json();
+      setLoading(false);
+      setMovies(data.movies);
+    })();
   }
 
   return <>{loading ? <Loader /> : <MovieList onClick={searchMovie} movies={movies} />}</>;
