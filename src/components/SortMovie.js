@@ -19,7 +19,12 @@ export default function SortMovie(props) {
 
   return (
     <>
-      <select className="select" value={selected} onChange={handleSelect}>
+      <select
+        className="select"
+        value={selected}
+        onChange={handleSelect}
+        disabled={movieList?.length ? false : true}
+      >
         <option key="sort" value="sort">
           -- 분류 --
         </option>
