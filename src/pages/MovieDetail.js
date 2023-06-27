@@ -64,11 +64,11 @@ const MovieDetail = () => {
                         return <Chip className="detail-genre-chip" label={item} color="default" variant="outlined" />
                       })
                     }
-
                   </Stack>
-                  
                   <Rating defaultValue={detailInfo.rating/2} readOnly></Rating>
-                  <a href={"https://www.imdb.com/title/"+detailInfo.imdb_code} target="_blank"><img style={{height:'16px'}} src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/863px-IMDB_Logo_2016.svg.png?20200406194337"/></a>
+                  <a href={`https://www.imdb.com/title/${detailInfo.imdb_code}`} target="_blank" rel="noreferrer">
+                    <img style={{'height':'16px'}} src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/863px-IMDB_Logo_2016.svg.png?20200406194337" alt="idmb_image" />
+                  </a>
                 </div>
               </div>
               {/* 하단 설명 영역 */}
