@@ -110,9 +110,6 @@
 
 .movie-card {
   width: calc((100% - 60px) / 4);
-  box-shadow: 2px 2px 2px 2px gray; // ljh
-  border-radius: 10px;
-  cursor: pointer;
 
   &:hover {
     
@@ -125,8 +122,10 @@
   .movie-img-grp {
     overflow: hidden;
     width: 100%;
+    border-radius: 10px;
 
     .movie-img {
+      display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -135,7 +134,7 @@
   }
 
   .movie-txt-grp {
-    padding: 8px;
+    padding: 5px 3px;
 
     .movie-title {
       font-size: 14px;
