@@ -54,6 +54,12 @@
   margin: 0 auto;
 }
 
+.one-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 // header
 .header {
   padding: 25px 0;
@@ -142,19 +148,22 @@
       margin-bottom: 3px;
     }
 
-    .movie-rating {
+    .movie-year {
       font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .movie-rating {
+      font-size: 10px;
       font-weight: 500;
     }
   }
 
-  // .one-line {
-  //   text-overflow: ellipsis;
-  //   white-space: nowrap;
-  //   overflow: hidden;
-  //   margin-bottom: 5px;
-  //   font-size: 16px;
-  // }
+  .gerne-chip {
+    font-size: 10px;
+    height: 20px; // MUI css custom
+  }
 }
 
 // MovieDetail
@@ -188,6 +197,10 @@
   }
 
   .bottom-area-wrap {
+    color: #fff; // temp
+  }
+
+  .detail-genre-chip {
     color: #fff; // temp
   }
 }

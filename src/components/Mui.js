@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+import { Button, ButtonGroup, Container, Grid, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 
 const Mui = () => {
   const [open, setOpen] = useState(false);

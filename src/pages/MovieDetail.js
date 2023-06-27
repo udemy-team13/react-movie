@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import Loader from "components/Loader";
-
+import { Chip, Stack } from '@mui/material';
 
 const MovieDetail = () => {
   const {id} = useParams();
@@ -12,7 +12,6 @@ const MovieDetail = () => {
 
   useEffect(() => {
     getMovieDetailInfo();
-    console.log(detailInfo);
   }, [])
 
   function getMovieDetailInfo() {
@@ -38,6 +37,9 @@ const MovieDetail = () => {
     }
   };
 
+  console.log('detailInfo', detailInfo);
+  
+
   return (
     <div className="page-container">
     {
@@ -56,7 +58,14 @@ const MovieDetail = () => {
                 </div>
                 <div className="detail-txt-grp">
                   <p>{detailInfo.title_long}</p>
-                  <p>{detailInfo.genres}</p>
+                  <Stack direction="row" spacing={1}>
+                    {
+                      detailInfo.genres.map((item) => {
+                        return <Chip className="detail-genre-chip" label={item} color="default" variant="outlined" />
+                      })
+                    }
+
+                  </Stack>
                   <p>{detailInfo.rating}</p>
                   <p>{detailInfo.imdb_code}</p>
                 </div>
