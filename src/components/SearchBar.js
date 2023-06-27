@@ -18,9 +18,9 @@ export default function SearchBar({ setMovieList, movies }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true); // laoder 노출
     // input validate
     if (text.length === 0) return;
+    setLoading(true); // laoder 노출
 
     // 해당하는 영화의 데이터 불러오기
     (async () => {
