@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import Loader from "components/Loader";
 import { Chip, Stack, Rating } from '@mui/material';
+import StarIcon from '@mui/icons-material/Star';
 
 const MovieDetail = () => {
   const {id} = useParams();
@@ -67,7 +68,7 @@ const MovieDetail = () => {
 
                   </Stack>
                   
-                  <Rating defaultValue={detailInfo.rating/2} readOnly></Rating>
+                  <Rating defaultValue={detailInfo.rating/2} readOnly emptyIcon={<StarIcon style={{opacity:0.8, fill:'white'}} fontSize="inherit"/>}></Rating>
                   <a href={"https://www.imdb.com/title/"+detailInfo.imdb_code} target="_blank"><img style={{height:'16px'}} src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/863px-IMDB_Logo_2016.svg.png?20200406194337"/></a>
                 </div>
               </div>
