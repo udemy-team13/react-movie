@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Chip, Stack, Rating } from "@mui/material";
 import Loader from "components/Loader";
+import { Chip, Stack, Rating } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
+import defaultImg from "assets/images/defaultImg.png";
 
 const MovieDetail = () => {
   const { id } = useParams();
@@ -10,6 +11,10 @@ const MovieDetail = () => {
   const [loading, setLoading] = useState(true);
   const [text, setText] = useState(150);
   const [toggle, setToggle] = useState(false);
+
+  const handleImgError = (e) => {
+    e.target.src = defaultImg;
+  };
 
   useEffect(() => {
     getMovieDetailInfo();
@@ -62,6 +67,7 @@ const MovieDetail = () => {
                     src={detailInfo.large_cover_image}
                     className="detail-img"
                     alt=""
+                    onError={handleImgError}
                   />
                 </div>
                 <div className="detail-txt-grp">
