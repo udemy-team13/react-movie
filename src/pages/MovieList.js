@@ -19,6 +19,9 @@ const MovieList = (props) => {
   return (
     <div className="page-container">
       <div className="layout-center">
+        <input type="text" />
+        <button onClick={() => {props.onClick()}}>검색</button>
+
         <div className="select-wrap">
           <SortMovie
             movieList={movieList}

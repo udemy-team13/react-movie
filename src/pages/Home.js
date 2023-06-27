@@ -17,5 +17,9 @@ export default function Home() {
     })();
   }, []);
 
-  return <>{loading ? <Loader /> : <MovieList movies={movies} />}</>;
+  function searchMovie() {
+    console.log('searchMovie');
+  }
+
+  return <>{loading ? <Loader /> : <MovieList onClick={searchMovie} movies={movies} />}</>;
 }
