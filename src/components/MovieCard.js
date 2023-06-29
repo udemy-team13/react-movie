@@ -38,7 +38,8 @@ const MovieCard = (props) => {
         <Rating
           name="size-small"
           size="small"
-          defaultValue={props.item.rating / 2}
+          defaultValue={0}
+          value={props.item.rating / 2}
           readOnly
         ></Rating>
       </div>

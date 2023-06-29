@@ -85,7 +85,8 @@ const MovieDetail = () => {
                   </Stack>
 
                   <Rating
-                    defaultValue={detailInfo.rating / 2}
+                    defaultValue={0}
+                    value={detailInfo.rating / 2}
                     readOnly
                     emptyIcon={
                       <StarIcon
