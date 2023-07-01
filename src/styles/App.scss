@@ -68,6 +68,20 @@
   text-overflow: ellipsis;
 }
 
+.pagination-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.pagination-num-btn {
+  min-width: 30px !important;
+}
+
+.pagination-icon-next-btn {
+  padding-right: 0 !important;
+}
+
 // header
 .header {
   padding: 20px 0;
