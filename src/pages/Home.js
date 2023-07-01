@@ -13,6 +13,7 @@ export default function Home() {
 
   useEffect(() => {
     (async () => {
+      setLoading(() => true);
       const { data } = await (
         await fetch(`https://yts.mx/api/v2/list_movies.json?page=${currentPage}`)
       ).json();
@@ -25,8 +26,8 @@ export default function Home() {
 
   return (
     <>
+      <Pagination currentPage={currentPage} prev={prev} next={next} jump={jump} />
       {loading ? <Loader /> : <MovieList movies={movies} />}
-      <Pagination prev={prev} next={next} jump={jump} />
     </>
   )
 }

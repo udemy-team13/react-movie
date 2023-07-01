@@ -1,13 +1,43 @@
+import { useEffect, useState } from "react"
+import { Button, IconButton } from '@mui/material';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
 export default function Pagination(props) {
+  let [pagination, setPagination] = useState([]);
+
+  function setPaginationArray() {
+    let copyPagination = [];
+    for(let i = props.currentPage; i <= props.currentPage + 4; i++) {
+      copyPagination.push(i);
+    }
+    setPagination(copyPagination);
+    console.log('pagination', pagination);
+  }
+
+
+  useEffect(() => {
+    setPaginationArray();
+  }, [props.currentPage])
+
+
   return (
-    <div style={{textAlign: 'center'}}>
-      <button type="button" onClick={props.prev}>prev</button>
-      <button type="button" onClick={() => { props.jump(1) }}>1</button>
-      <button type="button" onClick={() => { props.jump(2) }}>2</button>
-      <button type="button" onClick={() => { props.jump(3) }}>3</button>
-      <button type="button" onClick={() => { props.jump(4) }}>4</button>
-      <button type="button" onClick={() => { props.jump(5) }}>5</button>
-      <button type="button" onClick={props.next}>next</button>
+    <div className="layout-center">
+      <div className="pagination-wrap">
+        <IconButton disabled={props.currentPage === 1 ? true : false } aria-label="page-prev" onClick={props.prev}>
+          <ArrowBackIosNewIcon style={{fontSize: 'small'}} />
+        </IconButton>
+        {
+          pagination.map((item) => {
+            return (
+              <Button className="pagination-num-btn" color="inherit" size="small" key={item} onClick={() => { props.jump(item) }}>{item}</Button>
+            )
+          })
+        }
+        <IconButton className="pagination-icon-next-btn" aria-label="page-next" onClick={props.next}>
+          <ArrowForwardIosIcon style={{fontSize: 'small'}} />
+        </IconButton>
+      </div>
     </div>  
   )
 }
