@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import io from "socket.io-client";
 
 const socket = io("http://localhost:3001");
@@ -8,8 +8,18 @@ export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
+  // Chating-box 스크롤 생길시 항상 최하단으로 유지하여 새로운 메시지 보이게함.
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    const element = scrollRef.current;
+    element.scrollTop = element.scrollHeight;
+
+    // -> scroll 생기게 해주는 Wrapper Tag에 ref={scrollRef}를 넣어줌.
+  }, [messages]);
+  //
+
   const handleMessage = (message) => {
-    console.log("dddddd");
     setMessages((prev) => [...prev, message]);
   };
 
@@ -43,9 +53,8 @@ export default function Chat() {
         placeholder="사용자 이름을 입력하세요."
       />
       <h3>채팅</h3>
-      <div className="chat-list">
+      <div className="chat-list" ref={scrollRef}>
         {messages.map((message, index) => {
-          console.log(message);
           return (
             <p key={index}>
               {message.userName} : {message.content} - {message.time}
