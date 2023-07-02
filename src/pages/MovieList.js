@@ -43,7 +43,17 @@ const MovieList = (props) => {
               );
             })
           ) : (
-            <p style={{fontSize: '30px', padding: '50px 0', fontWeight: '700', textAlign: 'center', width: '100%'}}>영화를 찾지 못했습니다.</p>
+            <p
+              style={{
+                fontSize: "30px",
+                padding: "50px 0",
+                fontWeight: "700",
+                textAlign: "center",
+                width: "100%",
+              }}
+            >
+              영화를 찾지 못했습니다.
+            </p>
           )}
         </div>
       </div>

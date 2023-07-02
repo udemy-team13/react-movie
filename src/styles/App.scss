@@ -320,3 +320,23 @@
   outline: none;
   background-color: white;
 }
+
+// Chat
+
+.chat-wrapper {
+  position: fixed;
+  top: 30;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border: 3px solid black;
+  position: sticky;
+  border-radius: 15px;
+  width: 20rem;
+}
+
+.chat-list {
+  overflow-y: scroll;
+  height: 10rem;
+}
