@@ -76,10 +76,11 @@
 
 .pagination-num-btn {
   min-width: 30px !important;
-}
+  border-radius: 50% !important;
 
-.pagination-icon-next-btn {
-  padding-right: 0 !important;
+  &.is-active {
+    background-color: rgba(0, 0, 0, .05);
+  }
 }
 
 // header

@@ -30,7 +30,7 @@ export default function Pagination(props) {
         {
           pagination.map((item) => {
             return (
-              <Button className="pagination-num-btn" color="inherit" size="small" key={item} onClick={() => { props.jump(item) }}>{item}</Button>
+              <Button className={'pagination-num-btn ' + (item === props.currentPage ? 'is-active' : null)} color="inherit" size="small" key={item} onClick={() => { props.jump(item) }}>{item}</Button>
             )
           })
         }
