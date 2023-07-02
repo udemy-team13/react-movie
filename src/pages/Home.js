@@ -17,5 +17,6 @@ export default function Home() {
     })();
   }, []);
 
+  console.log(movies);
   return <>{loading ? <Loader /> : <MovieList movies={movies} />}</>;
 }
