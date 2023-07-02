@@ -14,7 +14,7 @@ const MovieDetail = () => {
 
   const handleImgError = (e) => {
     e.target.src = defaultImg;
-};
+  };
 
   useEffect(() => {
     getMovieDetailInfo();
@@ -43,8 +43,6 @@ const MovieDetail = () => {
     }
   };
 
-  console.log("detailInfo", detailInfo);
-
   return (
     <div className="page-container">
       {loading ? (
@@ -71,11 +69,12 @@ const MovieDetail = () => {
                   />
                 </div>
                 <div className="detail-txt-grp">
-                  <p>{detailInfo.title_long}</p>
-                  <Stack direction="row" spacing={1}>
-                    {detailInfo.genres.map((item) => {
+                  <p className="detail-title-txt">{detailInfo.title_long}</p>
+                  <Stack className="stack-genre-grp" direction="row" spacing={1}>
+                    {detailInfo.genres.map((item, index) => {
                       return (
                         <Chip
+                          key={index}
                           className="detail-genre-chip"
                           label={item}
                           color="default"
@@ -86,7 +85,8 @@ const MovieDetail = () => {
                   </Stack>
 
                   <Rating
-                    defaultValue={detailInfo.rating / 2}
+                    defaultValue={0}
+                    value={detailInfo.rating / 2}
                     readOnly
                     emptyIcon={
                       <StarIcon
@@ -111,6 +111,7 @@ const MovieDetail = () => {
               {/* 하단 설명 영역 */}
               <div className="bottom-area-wrap">
                 <p
+                  className="description-txt"
                   onClick={() => {
                     handleText();
                   }}

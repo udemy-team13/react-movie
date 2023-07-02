@@ -1,15 +1,10 @@
-import { Chip, Stack } from "@mui/material";
+import { Chip, Stack, Rating } from "@mui/material";
 import defaultImg from "assets/images/defaultImg.png";
 
 const MovieCard = (props) => {
   const handleImgError = (e) => {
     e.target.src = defaultImg;
   };
-
-  function clickTest() {
-    // Chip에 onClick event가 붙어야 인터렉션이 생겨서 test로 작성
-    console.log("test");
-  }
 
   function handleGenres(genre) {
     // onClick -> Chip의 genre를 받아온후 filter를 사용하여 해당 장르가 포함되는 애들만 골라줌.
@@ -40,14 +35,19 @@ const MovieCard = (props) => {
       <div className="movie-txt-grp">
         <p className="movie-txt movie-title one-line">{props.item.title}</p>
         <p className="movie-txt movie-year">{props.item.year}</p>
-        <p className="movie-txt movie-rating">{props.item.rating}</p>
+        <Rating
+          name="size-small"
+          size="small"
+          defaultValue={0}
+          value={props.item.rating / 2}
+          readOnly
+        ></Rating>
       </div>
       <Stack direction="row" spacing={0.5} flexWrap="wrap" useFlexGap>
         {props.item.genres.map((item) => {
           return (
             <Chip
               onClick={() => {
-                clickTest();
                 handleGenres(item);
               }}
               className="gerne-chip"

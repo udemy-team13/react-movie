@@ -1,22 +1,28 @@
 import { useEffect, useState } from "react";
 import Loader from "components/Loader";
 import MovieList from "pages/MovieList";
+import {useFetch} from "hooks/Homehook"
+import Pagination from "components/Pagination";
+import usePagination from "hooks/usePagination";
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
-  const [movies, setMovies] = useState([]);
-
+  const {loading, movies} = useFetch("https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year");
+  const { currentPage, next, prev, jump } = usePagination();
+  console.log('currentPage', currentPage)
+  
   useEffect(() => {
-    (async () => {
-      const { data } = await (
-        await fetch("https://yts.mx/api/v2/list_movies.json")
-      ).json();
-      // setLoading((prev) => !prev); // 이거 왜 !prev인지 이해를 못해서 일단 잠시 홀딩..
-      setLoading(() => false);
-      setMovies(data.movies);
-    })();
-  }, []);
+    // useFetch 재호출 어떻게 하지..?!
+    // currentPage query string에 담아서 재호출하면 완료
+  }, [currentPage])
 
+<<<<<<< HEAD
   console.log(movies);
   return <>{loading ? <Loader /> : <MovieList movies={movies} />}</>;
 }
+=======
+  return <>
+  <Pagination currentPage={currentPage} prev={prev} next={next} jump={jump} />
+  {loading ? <Loader /> :<MovieList movies={movies} />}
+  </>;
+}
+>>>>>>> 760adba25c1cd8b5917d72e34eec7af3848a2c59

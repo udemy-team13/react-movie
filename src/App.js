@@ -20,7 +20,7 @@ const theme = createTheme({ // 별도 테마 설정(MUI 기본 폰트 변경)
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Router>
+      {/* <Router> */}
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -28,7 +28,7 @@ function App() {
           <Route path="/mui" element={<Mui />} />
         </Routes>
         <Footer />
-      </Router>
+      {/* </Router> */}
     </ThemeProvider>
   );
 }
