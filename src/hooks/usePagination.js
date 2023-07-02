@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 
-function usePagination() {
+const usePagination = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  function next() {
+  const next = () => {
     setCurrentPage(currentPage + 1);
     console.log(currentPage);
   }
 
-  function prev() {
+  const prev = () => {
     if(currentPage !== 1) {
       setCurrentPage(currentPage - 1);
     }
     console.log(currentPage);
   }
 
-  function jump(page) {
+  const jump = (page) => {
     const pageNumber = page;
     setCurrentPage(pageNumber);
     console.log(pageNumber);
