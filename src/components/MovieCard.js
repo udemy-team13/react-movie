@@ -1,7 +1,10 @@
 import { Chip, Stack, Rating } from "@mui/material";
 import defaultImg from "assets/images/defaultImg.png";
+import { BiHeart } from "react-icons/bi";
+import useFavorite from "hooks/useFavorite";
 
 const MovieCard = (props) => {
+  const { isFavorite, handleClick } = useFavorite();
   const handleImgError = (e) => {
     e.target.src = defaultImg;
   };
@@ -59,6 +62,9 @@ const MovieCard = (props) => {
           );
         })}
       </Stack>
+      <button className="favorite-btn" onClick={handleClick}>
+        <BiHeart size="20px" color={isFavorite ? "red" : "black"} />
+      </button>
     </div>
   );
 };

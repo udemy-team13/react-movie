@@ -257,9 +257,7 @@
   padding: 50px 0;
 
   .top-area-wrap {
-
     .detail-img-grp {
-
       .detail-img {
         display: block;
         border-radius: 10px;
@@ -281,7 +279,7 @@
 
   .bottom-area-wrap {
     padding-top: 20px;
-    
+
     .description-txt {
       font-size: 16px;
       font-weight: 500;
@@ -313,4 +311,12 @@
   color: white;
   background-color: rgb(66, 116, 224);
   cursor: pointer;
+}
+
+//Favorite
+
+.favorite-btn {
+  padding-top: 6px;
+  outline: none;
+  background-color: white;
 }
