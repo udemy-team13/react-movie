@@ -2,12 +2,15 @@ import { Chip, Stack, Rating } from "@mui/material";
 import defaultImg from "assets/images/defaultImg.png";
 import { BiHeart } from "react-icons/bi";
 import useFavorite from "hooks/useFavorite";
+import { useDispatch } from "react-redux";
 
 const MovieCard = (props) => {
   const { isFavorite, handleClick } = useFavorite();
   const handleImgError = (e) => {
     e.target.src = defaultImg;
   };
+
+  let dispatch = useDispatch();
 
   function handleGenres(genre) {
     // onClick -> Chip의 genre를 받아온후 filter를 사용하여 해당 장르가 포함되는 애들만 골라줌.
@@ -62,7 +65,12 @@ const MovieCard = (props) => {
           );
         })}
       </Stack>
-      <button className="favorite-btn" onClick={handleClick}>
+      <button
+        className="favorite-btn"
+        onClick={() => {
+          handleClick(props.item);
+        }}
+      >
         <BiHeart size="20px" color={isFavorite ? "red" : "black"} />
       </button>
     </div>

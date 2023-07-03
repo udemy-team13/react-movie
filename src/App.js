@@ -5,12 +5,16 @@ import { createTheme, ThemeProvider } from "@mui/material";
 // pages
 import Home from "pages/Home";
 import MovieDetail from "pages/MovieDetail";
+import { setFav } from "store";
 
 // components
 import Header from "components/Header";
 import Footer from "components/Footer";
 import Mui from "components/Mui"; // MUI TEST COMPONENT
 import Chat from "components/Chat";
+import FavList from "pages/FavList";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const theme = createTheme({
   // 별도 테마 설정(MUI 기본 폰트 변경)
@@ -21,6 +25,17 @@ const theme = createTheme({
 });
 
 function App() {
+  let dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setFav());
+  }, []);
+
+  let test = useSelector((state) => {
+    return state;
+  });
+  console.log("test", test);
+
   return (
     <ThemeProvider theme={theme}>
       {/* <Router> */}
@@ -29,6 +44,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movie-detail/:id" element={<MovieDetail />} />
+        <Route path="/fav-list" element={<FavList />} />
         <Route path="/mui" element={<Mui />} />
       </Routes>
       <Footer />
