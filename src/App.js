@@ -1,5 +1,6 @@
 import "styles/Base.scss"; // reset css
 import "styles/App.scss"; // main css
+import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material";
 // pages
@@ -12,6 +13,10 @@ import Footer from "components/Footer";
 import Mui from "components/Mui"; // MUI TEST COMPONENT
 import Chat from "components/Chat";
 
+// Redux Store
+import { useDispatch } from "react-redux";
+import { settingFavoriteMovie } from "store/store";
+
 const theme = createTheme({
   // 별도 테마 설정(MUI 기본 폰트 변경)
   typography: {
@@ -21,6 +26,18 @@ const theme = createTheme({
 });
 
 function App() {
+  const dispatch = useDispatch();
+
+  // 즐겨찾기 보관 세팅
+  useEffect(() => {
+    if (localStorage.getItem("user") !== null) {
+      const localArr = JSON.parse(localStorage.getItem("user"));
+      dispatch(settingFavoriteMovie(localArr));
+    } else {
+      localStorage.setItem("user", JSON.stringify([]));
+    }
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       {/* <Router> */}

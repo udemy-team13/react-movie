@@ -2,14 +2,22 @@ import { Chip, Stack, Rating } from "@mui/material";
 import defaultImg from "assets/images/defaultImg.png";
 import { BiHeart } from "react-icons/bi";
 import useFavorite from "hooks/useFavorite";
+import { useSelector } from "react-redux";
 
 const MovieCard = (props) => {
-  const { isFavorite, handleClick } = useFavorite();
+  const { handleClick } = useFavorite();
   const handleImgError = (e) => {
     e.target.src = defaultImg;
   };
 
-  function handleGenres(genre) {
+  const favMovies = useSelector((state) => {
+    return state.favoriteMovies;
+  });
+  const existingIndex = favMovies.findIndex(
+    (item) => item.id === props.item.id
+  );
+
+  const handleGenres = (genre) => {
     // onClick -> Chip의 genre를 받아온후 filter를 사용하여 해당 장르가 포함되는 애들만 골라줌.
     // filter는 새로운 배열을 반환하므로 기존배열을 건드리지않음. copy = [...movieList]등 shallow copy를 사용안해도됨.
     const filterMovieList = props.movieList.filter((movie) =>
@@ -20,7 +28,7 @@ const MovieCard = (props) => {
     const set = new Set([...filterMovieList, ...props.movieList]);
     const sortMovieList = Array.from(set);
     props.setMovieList(sortMovieList);
-  }
+  };
 
   return (
     <div className="movie-card">
@@ -62,8 +70,8 @@ const MovieCard = (props) => {
           );
         })}
       </Stack>
-      <button className="favorite-btn" onClick={handleClick}>
-        <BiHeart size="20px" color={isFavorite ? "red" : "black"} />
+      <button className="favorite-btn" onClick={() => handleClick(props.item)}>
+        <BiHeart size="20px" color={existingIndex !== -1 ? "red" : "black"} />
       </button>
     </div>
   );

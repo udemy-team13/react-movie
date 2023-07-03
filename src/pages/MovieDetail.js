@@ -18,7 +18,7 @@ const MovieDetail = () => {
 
   useEffect(() => {
     getMovieDetailInfo();
-  }, []);
+  }, [id]);
 
   function getMovieDetailInfo() {
     fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
@@ -70,7 +70,11 @@ const MovieDetail = () => {
                 </div>
                 <div className="detail-txt-grp">
                   <p className="detail-title-txt">{detailInfo.title_long}</p>
-                  <Stack className="stack-genre-grp" direction="row" spacing={1}>
+                  <Stack
+                    className="stack-genre-grp"
+                    direction="row"
+                    spacing={1}
+                  >
                     {detailInfo.genres.map((item, index) => {
                       return (
                         <Chip

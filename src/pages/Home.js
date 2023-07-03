@@ -6,17 +6,24 @@ import Pagination from "components/Pagination";
 import usePagination from "hooks/usePagination";
 
 export default function Home() {
-  const {loading, movies, getMovies} = useFetch("https://yts.mx/api/v2/list_movies.json");
+  const { loading, movies, getMovies } = useFetch(
+    "https://yts.mx/api/v2/list_movies.json"
+  );
   const { currentPage, next, prev, jump } = usePagination();
-  
+
   useEffect(() => {
     getMovies(currentPage);
-  }, [currentPage])
-  
+  }, [currentPage]);
+
   return (
     <>
-      <Pagination currentPage={currentPage} prev={prev} next={next} jump={jump} />
+      <Pagination
+        currentPage={currentPage}
+        prev={prev}
+        next={next}
+        jump={jump}
+      />
       {loading ? <Loader /> : <MovieList movies={movies} />}
     </>
-  )
+  );
 }
